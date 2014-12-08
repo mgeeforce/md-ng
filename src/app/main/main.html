@@ -1,32 +1,46 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
+<md-sidenav layout="column"
+              style="overflow: hidden; display: flex;"
+              class="md-sidenav-left md-whiteframe-z2"
+              md-component-id="left"
+              md-is-locked-open="$media('gt-sm')">
 
-<div class="row">
-  <div class="large-12 large-text-center columns">
-    <div class="panel">
-      <h1>'Allo, 'Allo!</h1>
-      <img src="assets/images/yeoman.png" alt="I'm Yeoman"><br>
-      <p>Always a pleasure scaffolding your apps.</p>
-      <p><a class="button radius" ng-href="#">Splendid!</a></p>
-    </div>
-  </div>
-</div>
+  <md-toolbar style="min-height: 64px; max-height:64px;" layout="column">
+    <h1 class="md-toolbar-tools" flex layout="column">
+      <a href="" ng-click="goHome()" layout="row" flex>
+        <img src="assets/images/roadtrip-icon.png" height="48px" width="48px"/>
+        <div flex style="line-height:40px; text-indent: 15px;">Roadtrip</div>
+      </a>
+    </h1>
+  </md-toolbar>
 
-<div class="row">
-  <div class="large-4 columns" ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-    <div class="th">
-      <img class="right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-      <div class="caption">
-        <h3>{{awesomeThing.title}}</h3>
-        <p>{{awesomeThing.description}}</p>
-        <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
+  <md-content flex style="overflow: auto;">
+  </md-content>
+
+</md-sidenav>
+
+<div layout="column" layout-fill role="main">
+
+  <md-toolbar layout="column">
+      <div class="md-toolbar-tools" ng-click="openMenu()" flex layout="column">
+
+        <div layout="row" flex>
+          <button class="menu-icon" hide-gt-sm aria-label="Toggle Menu" style="position: relative; top: -5px;">
+            <md-icon icon="img/icons/ic_menu_24px.svg"></md-icon>
+          </button>
+          <div style="line-height: 28px;" hide-sm ng-if="">Menu Name</div>
+          <span layout="column" layout-align="center center" class="menu-separator-icon" ng-if="" style="padding: 0 10px;">
+            <img style="height: 16px;" src="img/docArrow.png" alt="" aria-hidden="true" hide-sm>
+          </span>
+          <div style="line-height: 28px;" ng-bind="'Angular Material'"></div>
+          <div flex></div>
+
+
+        </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="large-12 columns">
-    <hr>
-    <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
-  </div>
+    </md-toolbar>
+
+    <md-content ui-view md-scroll-y flex class="md-padding">
+    </md-content>
+
 </div>

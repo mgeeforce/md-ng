@@ -1,53 +1,34 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
 <div class="report" layout="column" layout-fill>
-<section layout="row" flex>
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('md')">
-      <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Sidenav Left</h1>
-      </md-toolbar>
-      <md-content class="md-padding">
-        <md-button ng-click="close()" class="md-primary" hide-gt-md>
-          Close Sidenav Left
-        </md-button>
-        <p hide show-gt-md>
-          This sidenav is locked open on your device. To go back to the default behavior,
-          narrow your display.
-        </p>
-      </md-content>
-          <md-button class="md-primary" ng-click="newReport($event)">
-      		New Report
-    	</md-button>
-    </md-sidenav>
+    <md-button id="addReport" class="md-fab md-primary" md-theme="red" aria-label="New Report" ng-click="newReport($event)">
+    <md-icon icon="assets/images/ic_add_24px.svg" style="fill: #fff; width: 24px; height: 24px;">></md-icon>
+  </md-button>
+  <section layout="row" flex>
 
-	<md-content flex class="md-padding">
+  <md-content flex class="md-padding">
 		<md-subheader class="md-primary">{{subheader}}</md-subheader>
+    <!--<div layout="row">
+      <h3 class="md-tile-content" flex="15">Date</h3>
+      <h3 class="md-tile-content" flex="45">Name</h3>
+    </div>-->
 		<md-list ng-repeat="report in reports">
-			<md-item>
-				<md-item-content ng-class="{'md-whiteframe-z2': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
-					<div class="md-tile-content" flex="20">
-						<h4>{{report.date | date}}</h4>
+			<md-item class="md-whiteframe-z1">
+				<md-item-content ng-class="{'md-whiteframe-z1 reportRow' : !hover, 'md-whiteframe-z2 reportRow': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
+					<div class="md-tile-content" flex="15">
+						<h4>Date: {{report.date | date}}</h4>
 					</div> 
 					<div class="md-tile-content" flex="45">
-						<h4>{{report.name}}</h4>
+						<h4>Name: {{report.name}}</h4>
 					</div>
-					<div class="md-tile-content" ng-if="report.allocated">
-						<md-checkbox aria-label="Race Account" ng-model="report.allocated">Race Account</md-checkbox>
-					</div>
+          <md-button id="allocate" ng-class="{'md-fab animate-show': hover, 'md-blue-theme md-fab md-primary': report.allocated}" aria-label="Allocate" ng-show="hover || report.allocated">
+            <md-icon icon="assets/images/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+              <md-tooltip>
+                Allocate
+              </md-tooltip>
+        </md-button>
 				</md-item-content>
 			</md-item>
 		</md-list>
 	</md-content>
-
-    <md-content flex>
-      <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Sidenav Right</h1>
-      </md-toolbar>
-      <md-content class="md-padding">
-        <md-button class="md-fab md-primary" md-theme="blue" aria-label="Allocate" data-drop="true" jqyoui-droppable>
-            <md-icon icon="/img/icons/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
-        </md-button>
-      </md-content>
-
-    </md-content>
   </section>
+
 </div>
