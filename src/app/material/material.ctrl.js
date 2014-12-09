@@ -11,6 +11,7 @@
 	        'name': 'Colorado',
 	        'date': 1417560509,
 	        'description': 'U18 expense report',
+	        'amount': 857.87,
 	        'status': 'Approved',
 	        'allocated': true
 	      },
@@ -19,6 +20,7 @@
 	        'name': 'Colorado',
 	        'date': 1417560509,
 	        'description': 'U18 expense report',
+	        'amount': 375.00,
 	        'status': 'Submitted',
 	        'allocated': true
 	      },
@@ -27,6 +29,7 @@
 	        'name': 'Colorado',
 	        'date': 1417560509,
 	        'description': 'U18 expense report',
+	        'amount': 14088.76,
 	        'status': 'Pending',
 	        'allocated': false
 	      }

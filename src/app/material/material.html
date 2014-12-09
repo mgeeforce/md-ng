@@ -15,10 +15,13 @@
 					<div class="md-tile-content" flex="15">
 						<h4> {{report.date | date}}</h4>
 					</div> 
-					<div class="md-tile-content" flex="45">
+					<div class="md-tile-content" flex="15">
 						<h4> {{report.name}}</h4>
 					</div>
-					<div class="md-tile-content" flex="15" ng-switch on="report.status" >
+          <div class="md-tile-content" flex="15">
+            <a href="#"><h4> {{report.amount | currency}}</h4></a>
+          </div>
+          <div class="md-tile-content" flex="15" ng-switch on="report.status" >
 						<md-icon icon-fill="#2196f3"  icon="assets/images/lock.svg" ng-switch-when='Submitted'>
 						<md-tooltip>Report submitted and locked</md-tooltip></md-icon>
 						<md-icon icon-fill="green" icon="assets/images/checkbox-marked.svg" ng-switch-when='Approved'>
