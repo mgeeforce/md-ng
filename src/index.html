@@ -25,12 +25,11 @@
     <script src="../bower_components/modernizr/modernizr.js"></script>
     <!-- endbuild -->
   </head>
-  <body md-theme="blue">
+  <body layout="row" md-theme="blue">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <md-backdrop class="md-sidenav-backdrop md-opaque ng-scope md-blue-theme md-locked-open"></md-backdrop>
-    <div ui-view layout="row" ></div>
+    <md-content ui-view flex layout="row"></md-content>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

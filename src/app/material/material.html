@@ -2,7 +2,6 @@
     <md-button id="addReport" class="md-fab md-primary" md-theme="red" aria-label="New Report" ng-click="newReport($event)">
     <md-icon icon="assets/images/ic_add_24px.svg" style="fill: #fff; width: 24px; height: 24px;">></md-icon>
   </md-button>
-  <section layout="row" flex>
 
   <md-content flex class="md-padding">
 		<md-subheader class="md-primary">{{subheader}}</md-subheader>
@@ -14,21 +13,32 @@
 			<md-item class="md-whiteframe-z1">
 				<md-item-content ng-class="{'md-whiteframe-z1 reportRow' : !hover, 'md-whiteframe-z2 reportRow': hover}" ng-mouseenter="hover = true" ng-mouseleave="hover = false">
 					<div class="md-tile-content" flex="15">
-						<h4>Date: {{report.date | date}}</h4>
+						<h4> {{report.date | date}}</h4>
 					</div> 
 					<div class="md-tile-content" flex="45">
-						<h4>Name: {{report.name}}</h4>
+						<h4> {{report.name}}</h4>
 					</div>
-          <md-button id="allocate" ng-class="{'md-fab animate-show': hover, 'md-blue-theme md-fab md-primary': report.allocated}" aria-label="Allocate" ng-show="hover || report.allocated">
-            <md-icon icon="assets/images/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
-              <md-tooltip>
-                Allocate
-              </md-tooltip>
-        </md-button>
+					<div class="md-tile-content" flex="15" ng-switch on="report.status" >
+						<md-icon icon-fill="#2196f3"  icon="assets/images/lock.svg" ng-switch-when='Submitted'>
+						<md-tooltip>Report submitted and locked</md-tooltip></md-icon>
+						<md-icon icon-fill="green" icon="assets/images/checkbox-marked.svg" ng-switch-when='Approved'>
+						<md-tooltip>Approved! The cheque is in the mail.</md-tooltip></md-icon>
+					</div>
+					<div ng-switch on="report.allocated">
+					<div class="md-tile-content" flex="25" ng-switch-when="false">
+			          <md-button id="allocate" ng-class="{'md-fab animate-show': hover}" aria-label="Allocate" ng-show="hover">
+			            <md-icon icon="assets/images/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+			            <md-tooltip>Allocate</md-tooltip>
+        				</md-button>
+        			</div>
+        			<div class="md-tile-content" flex="25" ng-switch-when="true">
+			            <md-icon icon="assets/images/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+			            <md-tooltip>Allocated</md-tooltip>
+        			</div>
+        			</div>
 				</md-item-content>
 			</md-item>
 		</md-list>
 	</md-content>
-  </section>
 
 </div>

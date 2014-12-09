@@ -13,23 +13,23 @@
     </h1>
   </md-toolbar>
 
-  <md-content flex style="overflow: auto;">
+  <md-content flex>
   </md-content>
 
 </md-sidenav>
 
 <div layout="column" layout-fill role="main">
 
-  <md-toolbar layout="column">
+  <md-toolbar md-theme-levels="{ backgroundColor: 900 }" layout="column">
       <div class="md-toolbar-tools" ng-click="openMenu()" flex layout="column">
 
         <div layout="row" flex>
           <button class="menu-icon" hide-gt-sm aria-label="Toggle Menu" style="position: relative; top: -5px;">
-            <md-icon icon="img/icons/ic_menu_24px.svg"></md-icon>
+            <md-icon icon="assets/images/ic_menu_24px.svg"></md-icon>
           </button>
           <div style="line-height: 28px;" hide-sm ng-if="">Menu Name</div>
           <span layout="column" layout-align="center center" class="menu-separator-icon" ng-if="" style="padding: 0 10px;">
-            <img style="height: 16px;" src="img/docArrow.png" alt="" aria-hidden="true" hide-sm>
+            <img style="height: 16px;" src="assets/images/docArrow.png" alt="" aria-hidden="true" hide-sm>
           </span>
           <div style="line-height: 28px;" ng-bind="'Angular Material'"></div>
           <div flex></div>
@@ -40,7 +40,6 @@
 
     </md-toolbar>
 
-    <md-content ui-view md-scroll-y flex class="md-padding">
-    </md-content>
+    <md-content ui-view md-scroll-y flex class="md-padding"></md-content>
 
 </div>

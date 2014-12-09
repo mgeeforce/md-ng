@@ -16,4 +16,5 @@ angular.module('roadtrip', ['ngAnimate', 'ngSanitize', 'ngResource', 'ui.router'
 
     $urlRouterProvider.otherwise('/home');
   })
+  
 ;

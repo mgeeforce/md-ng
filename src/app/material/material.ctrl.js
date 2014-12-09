@@ -3,7 +3,7 @@
 
     function MaterialCtrl($scope, $mdSidenav, $mdDialog) {
 
-    	$scope.subheader = 'Reports List';
+    	$scope.subheader = 'Expense Reports';
 
     	$scope.reports = [
 	      {
@@ -11,14 +11,24 @@
 	        'name': 'Colorado',
 	        'date': 1417560509,
 	        'description': 'U18 expense report',
-	        'allocated': false
+	        'status': 'Approved',
+	        'allocated': true
 	      },
 	      {
 	        'id': '2',
 	        'name': 'Colorado',
 	        'date': 1417560509,
 	        'description': 'U18 expense report',
+	        'status': 'Submitted',
 	        'allocated': true
+	      },
+	      {
+	        'id': '3',
+	        'name': 'Colorado',
+	        'date': 1417560509,
+	        'description': 'U18 expense report',
+	        'status': 'Pending',
+	        'allocated': false
 	      }
     	];
 
