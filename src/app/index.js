@@ -8,13 +8,28 @@ angular.module('roadtrip', ['ngAnimate', 'ngSanitize', 'ngResource', 'ui.router'
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
-      .state('home.material', {
-      	url: '/material',
-      	templateUrl: 'app/material/material.html',
-      	controller: 'MaterialCtrl'
+      .state('home.reports', {
+      	url: '/reports',
+      	templateUrl: 'app/reports/reports.html',
+      	controller: 'ReportCtrl'
+      })
+      .state('home.reports.submitted', {
+      	url: '/submitted',
+      	templateUrl: 'app/reports/reports.html',
+      	controller: 'ReportCtrl'
+      })
+      .state('home.expenses', {
+      	url: '/expenses',
+      	templateUrl: 'app/expenses/expenses.html',
+      	controller: 'ExpenseCtrl'
+      })
+      .state('home.receipts', {
+      	url: '/receipts',
+      	templateUrl: 'app/receipts/receipts.html',
+      	controller: 'ReceiptCtrl'
       });
 
     $urlRouterProvider.otherwise('/home');
   })
-  
+
 ;
