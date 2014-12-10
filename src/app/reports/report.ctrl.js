@@ -8,8 +8,8 @@
     	$scope.reports = [
 	      {
 	        'id': '1',
-	        'name': 'Colorado',
-	        'date': 1417560509,
+	        'name': 'Mt. Hood',
+	        'date': 1417560710,
 	        'description': 'U18 expense report',
 	        'amount': 857.87,
 	        'status': 'Approved',
@@ -26,7 +26,7 @@
 	      },
 	      {
 	        'id': '3',
-	        'name': 'Colorado',
+	        'name': 'Norquay',
 	        'date': 1417560509,
 	        'description': 'U18 expense report',
 	        'amount': 14088.76,
@@ -34,7 +34,23 @@
 	        'allocated': false
 	      }
     	];
+    $scope.predicate = '-name';
 
+    $scope.toggleSort = function(property) {
+    	return $scope.reports.sort(dynamicSort(property));
+	};
+
+    function dynamicSort(property) {
+    	var sortOrder = 1;
+    	if(property[0] === "-") {
+    		sortOrder = -1;
+    		property = property.substr(1);
+    	}
+    	return function(a,b) {
+    		var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        	return result * sortOrder;
+    	}
+    }	
 
    	  $scope.close = function() {
 	    $mdSidenav('left').close();

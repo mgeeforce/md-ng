@@ -5,11 +5,15 @@
 
   <md-content flex class="md-padding">
 		<md-subheader class="md-primary">{{subheader}}</md-subheader>
-    <!--<div layout="row">
-      <h3 class="md-tile-content" flex="15">Date</h3>
-      <h3 class="md-tile-content" flex="45">Name</h3>
-    </div>-->
-		<md-list ng-repeat="report in reports">
+    <div layout="row">
+      <span class="md-tile-left"></span>
+      <div class="md-tile-content" flex="25" ng-click="predicate = 'name'; reverse=!reverse"><h5>Name</h5></div>
+      <div class="md-tile-content" flex="15" ng-click="predicate = 'date'; reverse=!reverse"><h5>Date</h5></div>
+      <div class="md-tile-content" flex="10" ng-click="predicate = 'amount'; reverse=!reverse"><h5 style="float: right;" >Amount </h5></div>
+      <div class="md-tile-content" flex="15"><h5>Team</h5></div>
+    </div>
+    	<hr class="divider"/>
+		<md-list ng-repeat="report in reports | orderBy:predicate:reverse">
 			<md-item>
 				<md-item-content>
 				   <div class="md-tile-left">
@@ -17,34 +21,35 @@
               				<md-icon icon-fill="white" icon="assets/images/ic_folder_24px.svg" style="width: 24px; height: 24px;"></md-icon>
               			</div>
           		   </div>
-					<div class="md-tile-content" flex="15">
-						<h3> {{report.name}}</h3>
-						<h4> {{report.date | date}}</h4>
+					<div class="md-tile-content" flex="25">
+						<h4>{{report.name}}</h4>
 					</div> 
 					<div class="md-tile-content" flex="15">
-						<h4> {{report.name}}</h4>
+						<h4>{{report.date | date}}</h4>
 					</div>
-			        <div class="md-tile-content" flex="15">
-			            <a href="#"><h4> {{report.amount | currency}}</h4></a>
+			        <div class="md-tile-content" flex="10">
+			            <h4 style="float: right;" > {{report.amount | currency}} </h4>
 		          	</div>
-			        <div class="md-tile-content" flex="15" ng-switch on="report.status" >
-						<md-icon icon-fill="#2196f3"  icon="assets/images/lock.svg" ng-switch-when='Submitted'>
-						<md-tooltip>Report submitted and locked</md-tooltip></md-icon>
-						<md-icon icon-fill="green" icon="assets/images/checkbox-marked.svg" ng-switch-when='Approved'>
-						<md-tooltip>Approved! The cheque is in the mail.</md-tooltip></md-icon>
-					</div>
-					<div ng-switch on="report.allocated">
-					<div class="md-tile-content" flex="25" ng-switch-when="false">
+
+
+					<div ng-switch on="report.allocated" flex="15">
+					<div class="md-tile-content" ng-switch-when="false">
 			          <md-button id="allocate" ng-class="{'md-fab animate-show': hover}" aria-label="Allocate" ng-show="hover">
-			            <md-icon icon="assets/images/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+			            <md-icon icon-fill="#aaa" icon="assets/images/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
 			            <md-tooltip>Allocate</md-tooltip>
         				</md-button>
         			</div>
-        			<div class="md-tile-content" flex="25" ng-switch-when="true">
-			            <md-icon icon="assets/images/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+        			<div class="md-tile-content" ng-switch-when="true">
+			            <md-icon icon-fill="#aaa" icon="assets/images/ic_people_24px.svg" style="width: 24px; height: 24px;"></md-icon>
 			            <md-tooltip>Allocated</md-tooltip>
         			</div>
         			</div>
+			        <div class="md-tile-content" flex="15" ng-switch on="report.status" >
+						<md-icon icon-fill="#aaa"  icon="assets/images/lock.svg" ng-switch-when='Submitted'>
+						<md-tooltip>Report submitted and locked</md-tooltip></md-icon>
+						<md-icon icon-fill="#aaa" icon="assets/images/checkbox-marked.svg" ng-switch-when='Approved'>
+						<md-tooltip>Approved! The cheque is in the mail.</md-tooltip></md-icon>
+					</div>
 				</md-item-content>
 			</md-item>
 		</md-list>
