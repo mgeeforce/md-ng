@@ -9,7 +9,7 @@
 	      {
 	        'id': '1',
 	        'name': 'Mt. Hood',
-	        'date': 1417560710,
+	        'date': 1417560710000,
 	        'description': 'U18 expense report',
 	        'amount': 857.87,
 	        'status': 'Approved',
@@ -18,7 +18,7 @@
 	      {
 	        'id': '2',
 	        'name': 'Colorado',
-	        'date': 1417560509,
+	        'date': 1417560509000,
 	        'description': 'U18 expense report',
 	        'amount': 375.00,
 	        'status': 'Submitted',
@@ -27,11 +27,29 @@
 	      {
 	        'id': '3',
 	        'name': 'Norquay',
-	        'date': 1417560509,
+	        'date': 1418307614000,
 	        'description': 'U18 expense report',
 	        'amount': 14088.76,
 	        'status': 'Pending',
 	        'allocated': false
+	      },
+	      {
+	        'id': '4',
+	        'name': 'October',
+	        'date': 1415024414000,
+	        'description': 'U18 expense report',
+	        'amount': 188.76,
+	        'status': 'Pending',
+	        'allocated': false
+	      },
+	      {
+	        'id': '3',
+	        'name': 'September',
+	        'date': 1412346014000,
+	        'description': 'U18 expense report',
+	        'amount': 314.76,
+	        'status': 'Pending',
+	        'allocated': true
 	      }
     	];
     $scope.predicate = '-name';
