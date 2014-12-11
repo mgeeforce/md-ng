@@ -96,11 +96,15 @@ angular.module('roadtrip')
 		pages: [{
 			name: 'Draft',
 			id: 'draftReports',
-			url: '/reports/draft'
+			url: '/reports/draft',
+			icon: 'assets/images/ic_draft_18px.svg',
+			fill: '#aaa'
 		},{
 			name: 'Submitted',
 			id: 'submittedReports',
-			url: '/home/reports/submitted'
+			url: '/home/reports/submitted',
+			icon: 'assets/images/Submitted.svg',
+			fill: '#aaa'
 		},{
 			name: 'Approved',
 			id: 'approvedReports',

@@ -47,7 +47,7 @@
 	  $scope.newReport = function(ev) {
 	    $mdDialog.show({
 	      controller: DialogController,
-	      templateUrl: 'app/material/new-report.html',
+	      templateUrl: 'app/reports/new-report.html',
 	      targetEvent: ev,
 	      locals: { 
 	      	reports: $scope.reports

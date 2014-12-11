@@ -4,13 +4,13 @@
               md-component-id="left"
               md-is-locked-open="$media('gt-sm')">
 
-  <md-toolbar style="min-height: 64px; max-height:64px;" layout="column">
-    <h1 class="md-toolbar-tools" flex layout="column">
-      <a href="" ng-click="goHome()" layout="row" flex>
+  <md-toolbar layout="column" class="md-medium-tall" style="min-height: 64px; max-height:64px; padding-top: 8px;">
+    <div class="md-toolbar-tools" flex layout="column">
+      <a href="" ng-click="goHome()" layout="row" flex >
         <img src="assets/images/roadtrip-icon.png" height="48px" width="48px"/>
         <div flex style="line-height:40px; text-indent: 15px;">Roadtrip</div>
       </a>
-    </h1>
+    </div>
   </md-toolbar>
 
   <md-content flex style="overflow: auto;">
@@ -29,7 +29,7 @@
           ng-href="#{{page.url}}"
           md-highlight="menu.isPageSelected(section, page)"
           md-ink-ripple="#bbb">
-          <span ng-bind="page.name "></span>
+          <span ng-bind="page.name"></span>
       </a>
 
     </div>
@@ -40,17 +40,19 @@
 <div layout="column" layout-fill role="main">
   <md-toolbar layout="column">
     <div class="md-toolbar-tools" ng-click="openMenu()" flex layout="column">
-      <div layout="row" flex>
+      <div flex layout-fill layout="row">
         <button class="menu-icon" hide-gt-sm aria-label="Toggle Menu" style="position: relative; top: -5px;">
           <md-icon icon-fill="white" icon="assets/images/ic_menu_24px.svg"></md-icon>
         </button>
-        <div style="line-height: 28px;" hide-sm ng-if="menu.currentSection.name">{{menu.currentSection.name}}</div>
-        <span layout="column" layout-align="center center" class="menu-separator-icon" ng-if="menu.currentPage" style="padding: 0 10px;">
-          <img style="height: 16px;" src="assets/images/docArrow.png" alt="" aria-hidden="true" hide-sm>
+        <p style="line-height: 28px;" ng-if="menu.currentSection.name">{{menu.currentSection.name}}</p>
+        <span layout="vertical" layout-align="center center" class="menu-separator-icon"
+          ng-if="menu.currentPage" style="padding: 0 10px;">
+          <img style="height: 16px;" src="assets/images/docArrow.png" alt="" aria-hidden="true" >
         </span>
-        <div style="line-height: 28px;" ng-bind="menu.currentPage | humanizeDoc"></div>
-        <div flex></div>
+        <p style="line-height: 28px;" ng-bind="menu.currentPage | humanizeDoc"></p>
       </div>
+      <div flex></div>
+
     </div>
   </md-toolbar>
 
