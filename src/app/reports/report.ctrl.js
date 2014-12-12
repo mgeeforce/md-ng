@@ -13,7 +13,16 @@
 	        'description': 'U18 expense report',
 	        'amount': 857.87,
 	        'status': 'Approved',
-	        'allocated': true
+	        'allocated': true,
+	        'expenses' : [
+	        	{
+	        		'id': '1',
+	        		'merchant': 'Petro Canada',
+	        		'amount': 78.90,
+	        		'gst': 0.00,
+	        		'total': 78.90,
+	        		'category': 'Fuel'
+	        	}]
 	      },
 	      {
 	        'id': '2',

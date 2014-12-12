@@ -22,7 +22,7 @@ html h3, body h3 {
   font-weight: bold; }
 
 button, select, html, textarea, input {
-  font-family: RobotoDraft, Roboto, 'Helvetica Neue', sans-serif; }
+  font-family: Roboto, 'Helvetica Neue', sans-serif; }
 
 .browsehappy {
   margin: 0.2em 0;
@@ -55,9 +55,12 @@ button, select, html, textarea, input {
 }
 
 .reportRow {
-  height: 80px;
+  height: 64px;
 }
 
+md-item-content:hover {
+  background-color: #eee; 
+}
 .touch-circle {
   border-radius: 50%;
   -moz-border-radius: 50%;
@@ -91,12 +94,14 @@ button, select, html, textarea, input {
   padding-left: 10px; }
 
 #addReport {
-  position: relative;
-  top: 20px;
-  left: 75%;
+  position: absolute;
+  top: 32px;
+  left: 24px;
   z-index: 10;
+  background-color: white;
 }
 
+/*
 md-toolbar {
   position: absolute;
   font-size: 18px;
@@ -106,9 +111,28 @@ md-toolbar {
 md-sidenav md-toolbar {
   position: relative;
 }
+*/
 
+.page-title {
+  margin-left: 86px;
+}
+.report-bar {
+  position: relative;
+}
+.header-items {
+    height: 64px;
+    padding: 8px 0 8px 0;
+    border-bottom: #aaa;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    color: #aaa;
+}
 
-
+.divider {
+  height: 1px;
+  margin: 0 0 24px 24px;
+  background-color: #aaa;
+}
 .animate-show {
   opacity: 1;
   background: white;
@@ -196,9 +220,7 @@ md-sidenav md-toolbar {
   font-size: 18px;
 }
 
-.divider {
-  padding-left: 56px;
-}
+
 
 
 .animate-enter, 
