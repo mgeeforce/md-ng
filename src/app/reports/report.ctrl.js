@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    function ReportCtrl($scope, $mdSidenav, $mdDialog) {
+    function ReportCtrl($scope, $state, $mdSidenav, $mdDialog) {
 
     	$scope.subheader = 'Expense Reports';
 
@@ -52,7 +52,7 @@
 	        'allocated': false
 	      },
 	      {
-	        'id': '3',
+	        'id': '5',
 	        'name': 'September',
 	        'date': 1412346014000,
 	        'description': 'U18 expense report',
@@ -61,30 +61,26 @@
 	        'allocated': true
 	      }
     	];
-    $scope.predicate = '-name';
 
-    $scope.toggleSort = function(property) {
-    	return $scope.reports.sort(dynamicSort(property));
-	};
-
-    function dynamicSort(property) {
-    	var sortOrder = 1;
-    	if(property[0] === "-") {
-    		sortOrder = -1;
-    		property = property.substr(1);
-    	}
-    	return function(a,b) {
-    		var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-        	return result * sortOrder;
-    	}
-    }	
+	  $scope.predicate = '-name';
 
    	  $scope.close = function() {
-	    $mdSidenav('left').close();
+	    $scope.reportSelected = false;
+	    $mdSidenav('right').close();
+	  };
+
+	  $scope.select = function(report) {
+	  	console.log('report named '+report.name+' selected');
+	    $scope.reportSelected = true;
+	    $scope.selectedReport = report;
+	    $mdSidenav('right').open();
+	    console.log($mdSidenav('right').isOpen());
+	    $state.go('home.reports.submitted.detail', {id: report.id});
 	  };
 
    	  $scope.rightToggle = function() {
 	    $mdSidenav('right').toggle();
+
 	  };
 
 	  $scope.newReport = function(ev) {
@@ -125,7 +121,7 @@
         .module('roadtrip')
         .controller('ReportCtrl', ReportCtrl);
     
-    ReportCtrl.$inject = ['$scope', '$mdSidenav', '$mdDialog'];
+    ReportCtrl.$inject = ['$scope', '$state', '$mdSidenav', '$mdDialog'];
 
 
 })();

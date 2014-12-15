@@ -11,6 +11,7 @@
 			</md-icon>
 		</md-button>
 </md-toolbar>
+<div layout="row" flex>
 <md-content layout="column" flex style="padding: 8px; margin-left: 24px">
  	<div layout="row" flex class="header">
       <span class="md-tile-left" style="margin-right: 0px;"></span>
@@ -27,12 +28,12 @@
 	      <div class="md-tile-content" flex="15">
 	      	<p>Team</p>
 	      </div>
-	    </div>
+	  </div>
 
     </div>
 	<md-list ng-animate="'animate'" ng-repeat="report in reports | orderBy:predicate:reverse">
 		<md-item>
-			<md-item-content>
+			<md-item-content ng-class="{selected: report.id === selectedReport.id}" ng-click="select(report)">
 			   <div class="md-tile-left" style="margin-right: 0px;">
           			<div class="touch-circle">
           				<md-icon icon-fill="white" icon="assets/images/ic_folder_24px.svg" style="width: 24px; height: 24px;"></md-icon>
@@ -54,5 +55,6 @@
 			</md-item-content>
 		</md-item>
 	</md-list>
-</md-content>
 
+</md-content>
+</div>

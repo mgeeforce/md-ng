@@ -1,8 +1,27 @@
-<md-toolbar>
-	<div class="md-toolbar-tools">
-		<h1>{{name}}</h1>
-	</div>
-</md-toolbar>
-<div layout-fill>
+ <md-sidenav layout="column" class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+   
+<md-toolbar layout="column" class="md-medium-tall" style="min-height: 64px; max-height:64px; padding-top: 8px;"> 
+      <div class="md-toolbar-tools">
+        <div style="margin-left: auto; margin-right: 0px;">
+         <button class="menu-icon">
+          <md-icon icon="assets/images/account-switch.svg"></md-icon>
+        </button>
+        <button class="menu-icon">
+          <md-icon icon="assets/images/ic_delete_24px.svg"></md-icon>
+        </button>
+         <button class="menu-icon">
+          <md-icon icon="assets/images/ic_download_folder_24px.svg"></md-icon>
+        </button>
+        </div>
+      </div>
+      </md-toolbar>
+      <md-toolbar style="min-height: 64px; max-height:64px; padding-top: 8px;">
+        <p class="detail-title">Report Name: {{id}}</p>
+      </md-toolbar>
+      <md-content class="md-padding">
 
-</div>
+        <md-button ng-click="close()" class="md-primary">
+        Close Sidenav Right
+        </md-button>
+  </md-content>
+  </md-sidenav>

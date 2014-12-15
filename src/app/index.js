@@ -14,9 +14,18 @@ angular.module('roadtrip', ['ngAnimate', 'ngSanitize', 'ngResource', 'ui.router'
       	controller: 'ReportCtrl'
       })
       .state('home.reports.submitted', {
-      	url: '/submitted',
-      	templateUrl: 'app/reports/reports.html',
-      	controller: 'ReportCtrl'
+        url: '/submitted',
+        templateUrl: 'app/reports/reports.html',
+        controller: 'ReportCtrl'
+      })
+      .state('home.reports.submitted.detail', {
+        url: '/:id',
+        views: {
+          'detail@home': {
+          templateUrl: 'app/reports/report.html',
+          controller: 'ReportDetailCtrl'
+          }
+        }
       })
       .state('home.expenses', {
       	url: '/expenses',
