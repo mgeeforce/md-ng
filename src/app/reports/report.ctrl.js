@@ -5,6 +5,8 @@
 
     	$scope.subheader = 'Expense Reports';
 
+    	$scope.statuses  = ['All','Draft','Submitted','Approved'];
+
     	$scope.reports = [
 	      {
 	        'id': '1',
@@ -71,11 +73,11 @@
 
 	  $scope.select = function(report) {
 	  	console.log('report named '+report.name+' selected');
+	    $state.go('home.reports.submitted.detail', {id: report.id});
 	    $scope.reportSelected = true;
 	    $scope.selectedReport = report;
-	    $mdSidenav('right').open();
-	    console.log($mdSidenav('right').isOpen());
-	    $state.go('home.reports.submitted.detail', {id: report.id});
+	    //$mdSidenav('right').open();
+	    //console.log($mdSidenav('right').isOpen());
 	  };
 
    	  $scope.rightToggle = function() {

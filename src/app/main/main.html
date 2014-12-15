@@ -37,7 +37,7 @@
 
 </md-sidenav>
 
-<div layout="column" layout-fill role="main">
+<div layout="column" flex role="main" style="z-index:0;">
   <md-toolbar layout="column">
     <div class="md-toolbar-tools" ng-click="openMenu()" flex layout="column">
       <div flex layout-fill layout="row">
@@ -58,4 +58,4 @@
 
     <md-content ui-view md-scroll-y flex ></md-content>
 
-</div><div ui-view="detail"></div>
+</div><div ui-view="detail" layout="column"></div>

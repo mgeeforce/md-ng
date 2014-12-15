@@ -1,6 +1,10 @@
 <md-toolbar class="report-bar">
       <div class="md-toolbar-tools md-toolbar-bottom page-title">
-		<p style="font-size: 24px;">My reports</p>
+		<p style="font-size: 24px;">All</p>
+		<nav id="reportState">
+			<md-icon icon="assets/images/ic_arrow_drop_down_24px.svg"></md-icon>
+			<a href="#" ng-repeat="status in statuses">{{ status }}</a>
+		</nav>
 	</div>
    <md-button id="addReport" 
 				   class="md-fab"

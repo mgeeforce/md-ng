@@ -30,8 +30,8 @@ angular.module('roadtrip')
 	  $scope.goHome = function($event) {
 	    menu.selectPage(null, null);
 	    $location.path( '/' );
-	  }
-;
+	  };
+
 	  function openPage() {
 	    $scope.closeMenu();
 	    mainContentArea.focus();
