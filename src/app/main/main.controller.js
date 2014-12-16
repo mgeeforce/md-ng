@@ -71,6 +71,26 @@ angular.module('roadtrip')
 .factory('menu', ['$location', '$rootScope', function($location, $rootScope) {
 
 	var sections = [{
+		name: 'Reports',
+		url: '/reports',
+		pages: [{
+			name: 'Draft',
+			id: 'draftReports',
+			url: '/reports/draft',
+			icon: 'assets/images/ic_draft_18px.svg',
+			fill: '#aaa'
+		},{
+			name: 'Submitted',
+			id: 'submittedReports',
+			url: '/home/reports/submitted',
+			icon: 'assets/images/Submitted.svg',
+			fill: '#aaa'
+		},{
+			name: 'Approved',
+			id: 'approvedReports',
+			url: '/reports/approved'
+		}]
+	},{		
 		name: 'Expenses',
 		url: '/expenses',
 		pages: [{
@@ -91,32 +111,24 @@ angular.module('roadtrip')
 			url: '/expenses/allocated'
 		}]
 	},{
-		name: 'Reports',
-		url: '/reports',
-		pages: [{
-			name: 'Draft',
-			id: 'draftReports',
-			url: '/reports/draft',
-			icon: 'assets/images/ic_draft_18px.svg',
-			fill: '#aaa'
-		},{
-			name: 'Submitted',
-			id: 'submittedReports',
-			url: '/home/reports/submitted',
-			icon: 'assets/images/Submitted.svg',
-			fill: '#aaa'
-		},{
-			name: 'Approved',
-			id: 'approvedReports',
-			url: '/reports/approved'
-		}]
-	},{
 		name: 'Receipts',
 		url: '/receipts',
 		pages: [{
 			name: 'Unattached',
 			id: 'unattachedReceipts',
 			url: '/receipts/unattached'
+		}]
+	},{
+		name: 'Team',
+		url: '/team',
+		pages: [{
+			name: 'Team',
+			id: 'team',
+			url: '/team'
+		},{
+			name: 'Athletes',
+			id: 'athletes',
+			url: '/team/athletes'
 		}]
 	}];
 
