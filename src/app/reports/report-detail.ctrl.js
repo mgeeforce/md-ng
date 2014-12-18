@@ -11,7 +11,9 @@
         };
 
         $scope.shouldBeOpen = function () {
-            return $scope.id > 0;
+            console.log("in detail ctrl with $mdSidenav('right').isOpen() = ");
+            console.log($mdSidenav('right').isOpen() + " and $scope.id = "+$scope.id);
+            return ($scope.id > 0) && $mdSidenav('right').isOpen();
         };
 
     	$scope.$on('$viewContentLoaded', 
