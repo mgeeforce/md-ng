@@ -1,5 +1,5 @@
 <md-sidenav layout="column"
-              style="overflow: hidden; display: flex; width: 200px;"
+              style="overflow: hidden; display: flex; width: 200px; min-width: 200px;"
               class="md-sidenav-left md-whiteframe-z2"
               md-component-id="left"
               md-is-locked-open="$media('gt-sm')">
@@ -56,7 +56,7 @@
     </div>
   </md-toolbar>
 
-  <md-content ui-view md-scroll-y flex ></md-content>
+  <md-content ui-view flex layout="column"></md-content>
 
 </div>
 <div id="detail" ui-view="detail" layout="column"></div>

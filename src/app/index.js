@@ -16,14 +16,24 @@ angular.module('roadtrip', ['ngAnimate', 'ngSanitize', 'ngResource', 'ui.router'
       .state('home.reports.submitted', {
         url: '/submitted',
         templateUrl: 'app/reports/reports.html',
-        controller: 'ReportCtrl'
+        controller: 'ReportCtrl',
+        resolve: {
+          reports: function(ReportSvc) {
+            return ReportSvc.getReports();
+          }
+        }
       })
       .state('home.reports.submitted.detail', {
         url: '/:id',
         views: {
           'detail@home': {
           templateUrl: 'app/reports/report.html',
-          controller: 'ReportDetailCtrl'
+          controller: 'ReportDetailCtrl',
+          resolve: {
+            data: function($stateParams, ReportSvc) {
+              return ReportSvc.getReport($stateParams.id);
+            }
+          }
           }
         }
       })

@@ -1,8 +1,11 @@
 (function () {
 	'use strict';
 
-    function ReportDetailCtrl($scope, $stateParams, $mdSidenav) {
-    	console.log('in detail controller');
+    function ReportDetailCtrl($scope, $stateParams, $mdSidenav, data) {
+
+        $scope.report = data;
+
+    	console.log($scope.report);
     	$scope.id = $stateParams.id;
 
         $scope.close = function () {
@@ -21,12 +24,16 @@
 				console.log('$viewContentLoaded event fired :' + event);
 		});
 
+        $scope.select = function(report, category) {
+            console.log(category);
+        };
+
     }
 
    angular
     .module('roadtrip')
     .controller('ReportDetailCtrl', ReportDetailCtrl);
     
-    ReportDetailCtrl.$inject = ['$scope', '$stateParams', '$mdSidenav'];
+    ReportDetailCtrl.$inject = ['$scope', '$stateParams', '$mdSidenav', 'data'];
 
 })();

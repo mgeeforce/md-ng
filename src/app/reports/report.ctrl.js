@@ -1,68 +1,14 @@
 (function() {
     'use strict';
 
-    function ReportCtrl($scope, $state, $mdSidenav, $mdDialog) {
+    function ReportCtrl($scope, $state, $mdSidenav, $mdDialog, reports) {
 
     	$scope.subheader = 'Expense Reports';
 
     	$scope.statuses  = ['All','Draft','Submitted','Approved'];
 
-    	$scope.reports = [
-	      {
-	        'id': '1',
-	        'name': 'Mt. Hood',
-	        'date': 1417560710000,
-	        'description': 'U18 expense report',
-	        'amount': 857.87,
-	        'status': 'Approved',
-	        'allocated': true,
-	        'expenses' : [
-	        	{
-	        		'id': '1',
-	        		'merchant': 'Petro Canada',
-	        		'amount': 78.90,
-	        		'gst': 0.00,
-	        		'total': 78.90,
-	        		'category': 'Fuel'
-	        	}]
-	      },
-	      {
-	        'id': '2',
-	        'name': 'Colorado',
-	        'date': 1417560509000,
-	        'description': 'U18 expense report',
-	        'amount': 375.00,
-	        'status': 'Submitted',
-	        'allocated': true
-	      },
-	      {
-	        'id': '3',
-	        'name': 'Norquay',
-	        'date': 1418307614000,
-	        'description': 'U18 expense report',
-	        'amount': 14088.76,
-	        'status': 'Pending',
-	        'allocated': false
-	      },
-	      {
-	        'id': '4',
-	        'name': 'October',
-	        'date': 1415024414000,
-	        'description': 'U18 expense report',
-	        'amount': 188.76,
-	        'status': 'Pending',
-	        'allocated': false
-	      },
-	      {
-	        'id': '5',
-	        'name': 'September',
-	        'date': 1412346014000,
-	        'description': 'U18 expense report',
-	        'amount': 314.76,
-	        'status': 'Pending',
-	        'allocated': true
-	      }
-    	];
+    	$scope.reports = reports.reports;
+
 
 	  $scope.predicate = '-name';
 
@@ -123,7 +69,7 @@
         .module('roadtrip')
         .controller('ReportCtrl', ReportCtrl);
     
-    ReportCtrl.$inject = ['$scope', '$state', '$mdSidenav', '$mdDialog'];
+    ReportCtrl.$inject = ['$scope', '$state', '$mdSidenav', '$mdDialog', 'ReportSvc'];
 
 
 })();

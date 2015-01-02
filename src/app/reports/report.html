@@ -1,6 +1,6 @@
- <md-sidenav flex  class="md-sidenav-right md-whiteframe-z1" md-component-id="right" md-is-locked-open="shouldBeOpen">
+ <md-sidenav flex style="width: 380px;" class="md-sidenav-right md-whiteframe-z1" md-component-id="right" md-is-locked-open="true">
    
-  <md-toolbar layout="column" class="md-medium-tall" style="min-height: 64px; max-height:64px; padding-top: 8px;"> 
+  <md-toolbar layout="column" class="md-medium-tall" style="min-height: 64px; max-height:64px; padding-top: 8px; padding-left: 32px;"> 
     <div class="md-toolbar-tools">
       <div style="margin-left: auto; margin-right: 0px;">
        <button class="menu-icon">
@@ -18,13 +18,42 @@
       </div>
     </div>
   </md-toolbar>
-  <md-toolbar style="min-height: 64px; max-height:64px; padding-top: 2px;">
-    <p class="detail-title">Report Name: {{id}}</p>
-    <p class="detail-created">Created: Dec 11, 2014</p>
+  <md-toolbar style="min-height: 64px; max-height:64px; padding-top: 2px; padding-left: 32px;">
+    <p class="detail-title">{{report.name}}</p>
+    <p class="detail-created">Created: {{report.date | date}}</p>
     
   </md-toolbar>
   <md-content flex style="overflow: auto;">
-  <div flex ></div>
+  <div style="border-bottom-style: solid; border-bottom-width: 1px; padding-left: 32px; padding-right: 16px;" >
+	<md-list ng-repeat="total in report.totals">
+		<md-item>
+			<md-item-content  class="list-row" ng-click="select(report, total.category)">
+				<div class="md-tile-left" style="margin-right: 0px;">
+          			<div class="touch-circle">
+          				<md-icon icon-fill="white" icon="assets/images/ic_{{total.icon}}_24px.svg" style="width: 24px; height: 24px;"></md-icon>
+          			</div>
+      		   </div>
+				<div class="md-tile-content">
+					<p>{{total.category}}</p>
+				</div> 
+		        <div class="md-tile-content">
+		            <p style="float: right;" >{{total.amount | currency}}</p>
+	          	</div>
+	      	</md-item-content>
+	  	</md-item>
+	</md-list>
+  <div layout="row">
+  	<div class="md-tile-left" style="margin-right: 0px;"></div>
+  	<div class="md-tile-content"></div>
+  	<div class="md-tile-content" style="border-top-style: solid; border-top-width: 1px; font-size: 20px;"><p style="float: right; ">{{report.amount | currency}}</p></div>
+  </div>
+</div>
+
+  <div id="info" style="height: 128px; padding-left: 32px;">	
+  	<md-text-float label="Total Amount" ng-model="report.amount"></md-text-float>
+  	<md-text-float label="Status" ng-model="report.status"></md-text-float>
+  </div>	
+  	<div flex></div>
     <md-button ng-click="close()" class="md-primary">
       Close Sidenav Right
     </md-button>
