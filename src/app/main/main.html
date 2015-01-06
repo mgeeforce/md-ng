@@ -1,5 +1,5 @@
 <md-sidenav layout="column"
-              style="overflow: hidden; display: flex; width: 200px; min-width: 200px;"
+              style="overflow: hidden; display: flex; width: 240px; min-width: 240px;"
               class="md-sidenav-left md-whiteframe-z2"
               md-component-id="left"
               md-is-locked-open="$media('gt-sm')">
@@ -37,21 +37,26 @@
 
 </md-sidenav>
 
-<div layout="column" flex role="main" style="z-index:0;">
+<div layout="column" layout-fill flex role="main" style="z-index:0;">
   <md-toolbar layout="column">
     <div class="md-toolbar-tools" ng-click="openMenu()" flex layout="column">
-      <div flex layout-fill layout="row">
+      <div layout="row" flex>
+
         <button class="menu-icon" hide-gt-sm aria-label="Toggle Menu" style="position: relative; top: -5px;">
           <md-icon icon-fill="white" icon="assets/images/ic_menu_24px.svg"></md-icon>
         </button>
-        <p style="line-height: 28px;" ng-if="menu.currentSection.name">{{menu.currentSection.name}}</p>
-        <span layout="vertical" layout-align="center center" class="menu-separator-icon"
+
+        <div style="line-height: 28px;" hide-sm ng-if="menu.currentSection.name">{{menu.currentSection.name}}</div>
+        
+        <span layout="column" layout-align="center center" class="menu-separator-icon"
           ng-if="menu.currentPage" style="padding: 0 10px;">
-          <img style="height: 16px;" src="assets/images/docArrow.png" alt="" aria-hidden="true" >
+          <img style="height: 16px;" src="assets/images/docArrow.png" alt="" aria-hidden="true" hide-sm>
         </span>
-        <p style="line-height: 28px;" ng-bind="menu.currentPage | humanizeDoc"></p>
+
+        <div style="line-height: 28px;" ng-bind="menu.currentPage | humanizeDoc"></div>
+        <div flex></div>
+
       </div>
-      <div flex></div>
 
     </div>
   </md-toolbar>

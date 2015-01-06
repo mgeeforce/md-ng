@@ -74,6 +74,12 @@ angular.module('roadtrip')
 		name: 'Reports',
 		url: '/reports',
 		pages: [{
+			name: 'All',
+			id: 'allReports',
+			url: '/home/reports',
+			icon: '',
+			fill: '#aaa'
+		},{
 			name: 'Draft',
 			id: 'draftReports',
 			url: '/reports/draft',
