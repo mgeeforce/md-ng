@@ -71,42 +71,46 @@ angular.module('roadtrip')
 .factory('menu', ['$location', '$rootScope', function($location, $rootScope) {
 
 	var sections = [{
-		name: 'Reports',
-		url: '/reports',
+		name: 'Roadtrips',
+		url: '/roadtrips',
 		pages: [{
 			name: 'All',
-			id: 'allReports',
-			url: '/home/reports',
+			id: 'allRoadtrips',
+			url: '/home/roadtrips',
 			icon: '',
 			fill: '#aaa'
 		},{
 			name: 'Draft',
-			id: 'draftReports',
-			url: '/reports/draft',
+			id: 'draftRoadtrips',
+			url: '/roadtrips/draft',
 			icon: 'assets/images/ic_draft_18px.svg',
 			fill: '#aaa'
 		},{
 			name: 'Submitted',
-			id: 'submittedReports',
-			url: '/home/reports/submitted',
+			id: 'submittedRoadtrips',
+			url: '/home/roadtrips/submitted',
 			icon: 'assets/images/Submitted.svg',
 			fill: '#aaa'
 		},{
 			name: 'Approved',
-			id: 'approvedReports',
-			url: '/reports/approved'
+			id: 'approvedRoadtrips',
+			url: '/roadtrips/approved'
 		}]
 	},{		
 		name: 'Expenses',
 		url: '/expenses',
 		pages: [{
+			name: 'All',
+			id: 'allExpenses',
+			url: '/expenses'
+		},{
 			name: 'Unreported',
 			id: 'unreportedExpenses',
 			url: '/expenses/unreported'
 		},{
-			name: 'Reported',
-			id: 'reportedExpenses',
-			url: '/expenses/reported'
+			name: 'Reimbursable',
+			id: 'reimbursableExpenses',
+			url: '/expenses/reimbursable'
 		},{
 			name: 'Unallocated',
 			id: 'unallocatedExpenses',
@@ -167,8 +171,10 @@ angular.module('roadtrip')
 	  };	
 
 	function onLocationChange() {
+		console.log("in onLocationChange");
 	    var activated = false;
 	    var path = $location.path();
+	    console.log(path);
 	    sections.forEach(function(section) {
 	      section.pages.forEach(function(page) {
 	        if (path === page.url) {

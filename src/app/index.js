@@ -8,8 +8,8 @@ angular.module('roadtrip', ['ngAnimate', 'ngSanitize', 'ngResource', 'ui.router'
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
       })
-      .state('home.reports', {
-      	url: '/reports',
+      .state('home.roadtrips', {
+      	url: '/roadtrips',
       	templateUrl: 'app/reports/reports.html',
       	controller: 'ReportCtrl',
         resolve: {
@@ -18,7 +18,7 @@ angular.module('roadtrip', ['ngAnimate', 'ngSanitize', 'ngResource', 'ui.router'
           }
         }
        })
-      .state('home.reports.submitted', {
+      .state('home.roadtrips.submitted', {
         url: '/submitted',
         templateUrl: 'app/reports/reports.html',
         controller: 'ReportCtrl',
@@ -28,7 +28,7 @@ angular.module('roadtrip', ['ngAnimate', 'ngSanitize', 'ngResource', 'ui.router'
           }
         }
       })
-      .state('home.reports.submitted.detail', {
+      .state('home.roadtrips.detail', {
         url: '/:id',
         views: {
           'detail@home': {

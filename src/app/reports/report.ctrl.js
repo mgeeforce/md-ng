@@ -19,7 +19,7 @@
 
 	  $scope.select = function(report) {
 	  	console.log('report named '+report.name+' selected');
-	    $state.go('home.reports.submitted.detail', {id: report.id});
+	    $state.go('home.roadtrips.detail', {id: report.id});
 	    $scope.reportSelected = true;
 	    $scope.selectedReport = report;
 	    //$mdSidenav('right').open();
